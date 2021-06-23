@@ -1,0 +1,282 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.hero-section {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #ededeb;
+}
+
+.hero-section::after {
+    content: "A";
+    position: absolute;
+    font-size: 430px;
+    font-weight: 700;
+    top: 40px;
+    left: 100px;
+    color: #e0e0e0;
+}
+
+.hero-section::before {
+    content: "F";
+    position: absolute;
+    font-size: 430px;
+    font-weight: 700;
+    top: 190px;
+    left: 370px;
+    color: #e0e0e0;
+}
+
+.navbar {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.name-logo a {
+    font-size: 40px;
+    font-weight: 700;
+    color: #212121;
+}
+
+.toggle {
+    display: none;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgb(138, 228, 228);
+    border-radius: 10px;
+}
+
+.toggle-blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: 100%;
+    height: 100%;
+}
+
+.toggle-blog>span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 5px;
+    background-color: black;
+    transform: rotate(0);
+}
+
+.toggle-blog>span::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 10px;
+    border-radius: 5px;
+    background-color: black;
+    transform: rotate(0);
+}
+
+.toggle-blog>span::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -10px;
+    border-radius: 5px;
+    background-color: black;
+    transform: rotate(0);
+}
+
+#toggle-bar:checked~.wrapper .toggle-blog>span::after,
+#toggle-bar:checked~.wrapper .toggle-blog>span::before {
+    top: 0;
+}
+
+#toggle-bar:checked~.wrapper .toggle-blog>span {
+    transform: rotate(45deg);
+}
+
+#toggle-bar:checked~.wrapper .toggle-blog>span::after {
+    transform: rotate(-90deg);
+}
+
+.nav-menu ul {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    z-index: 30;
+    transform: translate(-50%, -50%);
+}
+
+.nav-menu ul li a {
+    margin-right: 30px;
+    color: #212121;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.nav-menu ul li a:hover {
+    color: rgb(138, 228, 228);
+}
+
+.nav-icons ul {
+    display: flex;
+    position: relative;
+    z-index: 30;
+}
+
+.nav-icons ul li a {
+    margin-left: 8px;
+    color: #212121;
+    font-size: 15px;
+    font-weight: 300;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    display: block;
+}
+
+.nav-icons ul li a:hover {
+    background-color: white;
+    color: rgb(138, 228, 228);
+}
+
+.head-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+    position: relative;
+}
+
+.head-section .content p {
+    font-size: 40px;
+    font-weight: 500;
+    color: #212121;
+    position: relative;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; 
+}
+@keyframes example {
+    0%   {color:#212121; left:0px; top:0px;}
+    25%  {color:rgb(138, 228, 228); left:200px; top:0px;}
+   
+  }
+
+.head-section .content h2 {
+    font-size: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    line-height: 80px;
+}
+
+.head-section .content span {
+    border-bottom: 5px solid rgb(138, 228, 228);
+    padding-bottom: 7px;
+}
+
+button {
+    padding: 15px 30px;
+    background-color: rgb(138, 228, 228);
+    color: white;
+    font-weight: 700;
+    outline: rgb(138, 228, 228);
+    border: none;
+    cursor: pointer;
+}
+
+button:hover{
+    border: 1px solid;
+    box-shadow: 5px 10px 18px #888888;
+    border-radius: 40px;
+    border: none;
+}
+
+
+
+
+@media (max-width: 860px) {
+    .hero-section{
+        padding: 0 20px;
+    }
+    .toggle {
+        display: block;
+        z-index: 100;
+    }
+    .navbar {
+        
+        background-color: transparent;
+    }
+    .nav-menu {
+        transition: all 300ms ease;
+        visibility: hidden;
+        opacity: 0;
+        display: flex;
+        text-align: center;
+        width: 100%;
+        top: 100px;
+        flex-basis: 100%;
+        background-color:rgb(138, 228, 228);
+        flex-direction: column;
+    }
+    .nav-menu ul {
+        flex-direction: column;
+        padding: 20px 0;
+        position: relative;
+        background-color:rgb(138, 228, 228);
+        left: 0;
+        transform: translate(0, 0);
+    }
+    .nav-menu ul a {
+        display: block;
+        padding: 10px 15px;
+        text-align: left;
+    }
+    .nav-icons {
+        visibility: hidden;
+        opacity: 0;
+        z-index: 30;  
+        width: 100%;
+        background-color:lightcyan;
+        transition: 300ms ease;
+    }
+    #toggle-bar:checked ~ .wrapper .nav-menu {
+        visibility: visible;
+        top: 0;
+        opacity: 1;
+    }
+    #toggle-bar:checked ~ .wrapper .nav-icons {
+        visibility: visible;
+        opacity: 1;
+    }
+   
+
+}
